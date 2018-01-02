@@ -15,8 +15,20 @@ class App extends Component {
       items: [{
         id: _.uniqueId(),
         name: name,
-        packed: false
+        checked: false
       }, ...this.state.items]
+    })
+  }
+
+  uncheckItems = () => {
+    this.setState({
+      items: this.state.items.map(({ id, name }) => {
+        return {
+          id: id,
+          name: name,
+          checked: false
+        }
+      })
     })
   }
 
@@ -36,7 +48,9 @@ class App extends Component {
           header="You've checked the following items..."
         />
         <div className="buttons justify-content-between align-items-center">
-          <UncheckItems />
+          <UncheckItems 
+            handleUncheckItems={ this.uncheckItems }
+          />
           <DeleteAll />
         </div>
       </div>
