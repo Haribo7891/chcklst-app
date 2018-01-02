@@ -38,6 +38,12 @@ class App extends Component {
     })
   }
 
+  removeItem = (id) => {
+    this.setState({
+      items: this.state.items.filter((item) => item.id !== id)
+    })
+  }
+
   render () {
     const checked = this.state.items.filter(item => item.checked);
     const unchecked = this.state.items.filter(item => !item.checked);
@@ -51,11 +57,13 @@ class App extends Component {
           items={ unchecked }
           title="Unchecked"
           header="These items still need to checked!"
+          handleRemoveItem={ this.removeItem }
         />
         <ListCard 
           items={ checked }
           title="Checked"
           header="You've checked the following items..."
+          handleRemoveItem={ this.removeItem }
         />
         <div className="buttons justify-content-between align-items-center">
           <UncheckItems 

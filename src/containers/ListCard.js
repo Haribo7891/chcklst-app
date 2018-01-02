@@ -17,6 +17,7 @@ class ListCard extends Component {
             <ul className="list-group" key={ item.id }>
               <ListItem 
                 item={ item }
+                handleRemoveItem={ this.props.handleRemoveItem }
               />
             </ul>
           ))}
