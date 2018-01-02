@@ -64,32 +64,37 @@ class App extends Component {
     const unchecked = this.state.items.filter(item => !item.checked);
     return (
       <div className="container">
-        <h1>Checklist App</h1>
+        <div className="App">
+          <h1>Checklist App</h1>
+        </div>
         <AddItem 
           handleNewItem={ this.addItem }
         />
-        <ListCard 
-          items={ unchecked }
-          title="Unchecked"
-          header="These items still need to checked!"
-          handleRemoveItem={ this.removeItem }
-          handleToggleItem={ this.toggleItem }
-        />
-        <ListCard 
-          items={ checked }
-          title="Checked"
-          header="You've checked the following items..."
-          handleRemoveItem={ this.removeItem }
-          handleToggleItem={ this.toggleItem }
-        />
-        <div className="buttons justify-content-between align-items-center">
-          <UncheckItems 
-            handleUncheckItems={ this.uncheckItems }
+        { this.state.items.length >= 1 ?
+        <div>
+          <ListCard 
+            items={ unchecked }
+            title="Unchecked"
+            header="These items still need to checked!"
+            handleRemoveItem={ this.removeItem }
+            handleToggleItem={ this.toggleItem }
             />
-          <DeleteAll 
-            handleDeleteAll={ this.deleteAllItems }
-          />
-        </div>
+          <ListCard 
+            items={ checked }
+            title="Checked"
+            header="You've checked the following items..."
+            handleRemoveItem={ this.removeItem }
+            handleToggleItem={ this.toggleItem }
+            />
+          <div className="buttons justify-content-between align-items-center App">
+            <UncheckItems 
+              handleUncheckItems={ this.uncheckItems }
+              />
+            <DeleteAll 
+              handleDeleteAll={ this.deleteAllItems }
+              />
+          </div>
+        </div> : '' }
       </div>
     );
   }

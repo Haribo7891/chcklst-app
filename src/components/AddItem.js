@@ -15,11 +15,13 @@ class AddItem extends Component {
 
   handleSubmitNewItem = (event) => {
     event.preventDefault();
-    this.props.handleNewItem(this.state.inputValue);
-    this.setState({
-      inputValue: ''
-    });
-    this.refs.addNewItem.value = ''
+    if (this.state.inputValue.length >= 1) {
+      this.props.handleNewItem(this.state.inputValue);
+      this.setState({
+        inputValue: ''
+      });
+      this.refs.addNewItem.value = ''
+    }
   }
 
   render () {
