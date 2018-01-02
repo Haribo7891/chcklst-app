@@ -32,6 +32,12 @@ class App extends Component {
     })
   }
 
+  deleteAllItems = () => {
+    this.setState({
+      items: []
+    })
+  }
+
   render () {
     return (
       <div className="container">
@@ -51,7 +57,9 @@ class App extends Component {
           <UncheckItems 
             handleUncheckItems={ this.uncheckItems }
           />
-          <DeleteAll />
+          <DeleteAll 
+            handleDeleteAll={ this.deleteAllItems }
+          />
         </div>
       </div>
     );

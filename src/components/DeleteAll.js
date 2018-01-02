@@ -5,7 +5,7 @@ class DeleteAll extends Component {
   render () {
     return (
       <span className="deleteAll">
-        <button type="button" className="btn btn-danger btn-lg" onClick="">Delete all items</button>
+        <button type="button" className="btn btn-danger btn-lg" onClick={ this.props.handleDeleteAll }>Delete all items</button>
       </span>
     );
   }
