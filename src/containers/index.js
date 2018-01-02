@@ -1,5 +1,7 @@
 import App from './App';
+import ListCard from './ListCard';
 
 export {
-  App
+  App,
+  ListCard
 };
