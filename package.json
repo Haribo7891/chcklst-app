@@ -2,6 +2,15 @@
   "name": "checklist",
   "version": "0.1.0",
   "private": true,
+  "description": "Northcoders News: A REDDIT style project",
+  "author": "Harry Crank",
+  "license": "ISC",
+  "keywords": [
+    "northcoders",
+    "checklist",
+    "frontend",
+    "react"
+  ],
   "dependencies": {
     "eslint": "^4.14.0",
     "lodash": "^4.17.4",
