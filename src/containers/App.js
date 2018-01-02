@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import { AddItem } from '../components';
+import { AddItem, UncheckItems } from '../components';
 import { ListCard } from '../containers';
 
 class App extends Component {
@@ -25,9 +25,7 @@ class App extends Component {
           header="You've checked the following items..."
         />
         <div className="buttons justify-content-between align-items-center">
-          <span className="">
-            <button type="button" className="btn btn-primary btn-lg" onClick="">Uncheck all items</button>
-          </span>
+          <UncheckItems />
           <span className="">
             <button type="button" className="btn btn-danger btn-lg" onClick="">Delete all items</button>
           </span>
