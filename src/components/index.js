@@ -1,5 +1,7 @@
 import AddItem from './AddItem';
+import ListItem from './ListItem';
 
 export {
-  AddItem
+  AddItem,
+  ListItem
 };
