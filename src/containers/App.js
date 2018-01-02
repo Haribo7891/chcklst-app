@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import '../styles/App.css';
-import { AddItem, UncheckItems, DeleteAll } from '../components';
+import { AddItem, UncheckItems, DeleteAll, Footer } from '../components';
 import { ListCard } from '../containers';
 
 class App extends Component {
@@ -66,10 +66,10 @@ class App extends Component {
       <div className="container">
         <div className="App">
           <h1>Checklist App</h1>
-        </div>
+          </div>
         <AddItem 
           handleNewItem={ this.addItem }
-        />
+          />
         { this.state.items.length >= 1 ?
         <div>
           <ListCard 
@@ -95,6 +95,9 @@ class App extends Component {
               />
           </div>
         </div> : '' }
+        <div className="App">
+        <Footer />
+        </div>
       </div>
     );
   }
