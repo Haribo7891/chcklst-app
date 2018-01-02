@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import '../styles/App.css';
-import { AddItem, UncheckItems, DeleteAll, Footer } from '../components';
+import { AddItem, UncheckItems, DeleteAll, Footer, CheckAll } from '../components';
 import { ListCard } from '../containers';
 
 class App extends Component {
@@ -27,6 +27,18 @@ class App extends Component {
           id: id,
           name: name,
           checked: false
+        }
+      })
+    })
+  }
+
+  checkAllItems = () => {
+    this.setState({
+      items: this.state.items.map(({ id, name }) => {
+        return {
+          id: id,
+          name: name,
+          checked: true
         }
       })
     })
@@ -75,18 +87,21 @@ class App extends Component {
           <ListCard 
             items={ unchecked }
             title="Unchecked"
-            header="These items still need to checked!"
+            header="The following items still need to be checked..."
             handleRemoveItem={ this.removeItem }
             handleToggleItem={ this.toggleItem }
             />
           <ListCard 
             items={ checked }
             title="Checked"
-            header="You've checked the following items..."
+            header="The following items have been checked..."
             handleRemoveItem={ this.removeItem }
             handleToggleItem={ this.toggleItem }
             />
           <div className="buttons justify-content-between align-items-center App">
+            <CheckAll 
+              handleCheckAll={ this.checkAllItems }
+              />
             <UncheckItems 
               handleUncheckItems={ this.uncheckItems }
               />

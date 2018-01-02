@@ -1,13 +1,15 @@
 import AddItem from './AddItem';
-import ListItem from './ListItem';
-import UncheckItems from './UncheckItems';
+import CheckAll from './CheckAll';
 import DeleteAll from './DeleteAll';
 import Footer from './Footer';
+import ListItem from './ListItem';
+import UncheckItems from './UncheckItems';
 
 export {
   AddItem,
-  ListItem,
-  UncheckItems,
+  CheckAll,
   DeleteAll,
-  Footer
+  Footer,
+  ListItem,
+  UncheckItems
 };

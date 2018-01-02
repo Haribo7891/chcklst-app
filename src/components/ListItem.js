@@ -22,7 +22,7 @@ class ListItem extends Component {
               <input className="form-check-input" type="checkbox" value={ id } checked={ checked } onChange={ this.handleToggleClick }/>{ name }
             </label>
           </div>
-          <button type="button" className="btn btn-outline-danger btn-sm" onClick={ this.handleRemoveClick }>Remove</button>
+          <button type="button" className="btn btn-outline-danger btn-sm" onClick={ this.handleRemoveClick }>Delete</button>
         </li>
       </div>
     );
