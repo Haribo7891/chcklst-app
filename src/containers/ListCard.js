@@ -18,6 +18,7 @@ class ListCard extends Component {
               <ListItem 
                 item={ item }
                 handleRemoveItem={ this.props.handleRemoveItem }
+                handleToggleItem={ this.props.handleToggleItem }
               />
             </ul>
           ))}

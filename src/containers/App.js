@@ -44,6 +44,21 @@ class App extends Component {
     })
   }
 
+  toggleItem = (id) => {
+    this.setState({
+      items: this.state.items.map((item) => {
+        if (item.id === id) {
+          return {
+            id: item.id,
+            name: item.name,
+            checked: !item.checked
+          }
+        }
+        return item;
+      })
+    })
+  }
+
   render () {
     const checked = this.state.items.filter(item => item.checked);
     const unchecked = this.state.items.filter(item => !item.checked);
@@ -58,17 +73,19 @@ class App extends Component {
           title="Unchecked"
           header="These items still need to checked!"
           handleRemoveItem={ this.removeItem }
+          handleToggleItem={ this.toggleItem }
         />
         <ListCard 
           items={ checked }
           title="Checked"
           header="You've checked the following items..."
           handleRemoveItem={ this.removeItem }
+          handleToggleItem={ this.toggleItem }
         />
         <div className="buttons justify-content-between align-items-center">
           <UncheckItems 
             handleUncheckItems={ this.uncheckItems }
-          />
+            />
           <DeleteAll 
             handleDeleteAll={ this.deleteAllItems }
           />

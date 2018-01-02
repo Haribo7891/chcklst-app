@@ -6,6 +6,11 @@ class ListItem extends Component {
     event.preventDefault()
     this.props.handleRemoveItem(this.props.item.id)
   }
+  
+  handleToggleClick = (event) => {
+    event.preventDefault()
+    this.props.handleToggleItem(this.props.item.id)
+  }
 
   render () {
     const { item: { id, name, checked } } = this.props;
