@@ -13,6 +13,15 @@ class AddItem extends Component {
     })
   }
 
+  handleSubmitNewItem = (event) => {
+    event.preventDefault();
+    this.props.handleNewItem(this.state.inputValue);
+    this.setState({
+      inputValue: ''
+    });
+    this.refs.addNewItem.value = ''
+  }
+
   render () {
     return (
       <div className="form-group">
@@ -24,7 +33,7 @@ class AddItem extends Component {
               placeholder="Add item..." 
               ref="addNewItem" 
               onChange={ this.handleInputChange }></input>
-            <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick="">Add</button>
+            <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={ this.handleSubmitNewItem }>Add</button>
           </form>
       </div>
     );

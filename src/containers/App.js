@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import '../styles/App.css';
 import { AddItem, UncheckItems, DeleteAll } from '../components';
 import { ListCard } from '../containers';
@@ -7,6 +8,16 @@ class App extends Component {
 
   state = {
     items: []
+  }
+
+  addItem = (name) => {
+    this.setState({
+      items: [{
+        id: _.uniqueId(),
+        name: name,
+        packed: false
+      }, ...this.state.items]
+    })
   }
 
   render () {
