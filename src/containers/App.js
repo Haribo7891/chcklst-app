@@ -39,6 +39,8 @@ class App extends Component {
   }
 
   render () {
+    const checked = this.state.items.filter(item => item.checked);
+    const unchecked = this.state.items.filter(item => !item.checked);
     return (
       <div className="container">
         <h1>Checklist App</h1>
@@ -46,10 +48,12 @@ class App extends Component {
           handleNewItem={ this.addItem }
         />
         <ListCard 
+          items={ unchecked }
           title="Unchecked"
           header="These items still need to checked!"
         />
         <ListCard 
+          items={ checked }
           title="Checked"
           header="You've checked the following items..."
         />
