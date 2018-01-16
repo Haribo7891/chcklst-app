@@ -15,8 +15,10 @@ class AddItem extends Component {
 
   handleSubmitNewItem = (event) => {
     event.preventDefault();
-    if (this.state.inputValue.length >= 1) {
-      this.props.handleNewItem(this.state.inputValue);
+    const { inputValue } = this.state;
+    const { handleNewItem } = this.props;
+    if (inputValue.length >= 1) {
+      handleNewItem(inputValue);
       this.setState({
         inputValue: ''
       });
@@ -35,7 +37,10 @@ class AddItem extends Component {
               placeholder="Add item..." 
               ref="addNewItem" 
               onChange={ this.handleInputChange }></input>
-            <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={ this.handleSubmitNewItem }>Add</button>
+            <button 
+              className="btn btn-primary my-2 my-sm-0" 
+              type="submit" 
+              onClick={ this.handleSubmitNewItem }>Add</button>
           </form>
       </div>
     );

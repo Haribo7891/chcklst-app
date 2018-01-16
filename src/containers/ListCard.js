@@ -4,7 +4,7 @@ import { ListItem } from '../components';
 class ListCard extends Component {
 
   render () {
-    const { items, title, header } = this.props;
+    const { items, title, header, handleRemoveItem, handleToggleItem } = this.props;
     const count = items.length;
     return (
       <div className="card border-success mb-3">
@@ -13,15 +13,15 @@ class ListCard extends Component {
           { count === 0 ? '' : <p className="card-text">{ header }</p> }
         </div>
         <div className="card-body text-success">
-          {items.map((item) => (
+          { items.map((item) => (
             <ul className="list-group" key={ item.id }>
               <ListItem 
                 item={ item }
-                handleRemoveItem={ this.props.handleRemoveItem }
-                handleToggleItem={ this.props.handleToggleItem }
+                handleRemoveItem={ handleRemoveItem }
+                handleToggleItem={ handleToggleItem }
               />
             </ul>
-          ))}
+          )) }
         </div>
       </div>
     );

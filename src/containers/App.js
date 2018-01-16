@@ -21,8 +21,9 @@ class App extends Component {
   }
 
   uncheckItems = () => {
+    const { items } = this.state;
     this.setState({
-      items: this.state.items.map(({ id, name }) => {
+      items: items.map(({ id, name }) => {
         return {
           id: id,
           name: name,
@@ -31,10 +32,11 @@ class App extends Component {
       })
     })
   }
-
+  
   checkAllItems = () => {
+    const { items } = this.state;
     this.setState({
-      items: this.state.items.map(({ id, name }) => {
+      items: items.map(({ id, name }) => {
         return {
           id: id,
           name: name,
@@ -43,22 +45,24 @@ class App extends Component {
       })
     })
   }
-
+  
   deleteAllItems = () => {
     this.setState({
       items: []
     })
   }
-
+  
   removeItem = (id) => {
+    const { items } = this.state;
     this.setState({
-      items: this.state.items.filter((item) => item.id !== id)
+      items: items.filter((item) => item.id !== id)
     })
   }
-
+  
   toggleItem = (id) => {
+    const { items } = this.state;
     this.setState({
-      items: this.state.items.map((item) => {
+      items: items.map((item) => {
         if (item.id === id) {
           return {
             id: item.id,
@@ -72,8 +76,9 @@ class App extends Component {
   }
 
   render () {
-    const checked = this.state.items.filter(item => item.checked);
-    const unchecked = this.state.items.filter(item => !item.checked);
+    const { items } = this.state;
+    const checked = items.filter(item => item.checked);
+    const unchecked = items.filter(item => !item.checked);
     return (
       <div className="container">
         <div className="App">
@@ -82,7 +87,7 @@ class App extends Component {
         <AddItem 
           handleNewItem={ this.addItem }
           />
-        { this.state.items.length >= 1 ?
+        { items.length >= 1 ?
         <div>
           <ListCard 
             items={ unchecked }
