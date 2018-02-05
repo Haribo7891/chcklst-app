@@ -16,8 +16,8 @@ class App extends Component {
         id: _.uniqueId(),
         name: name,
         checked: false
-      }, ...this.state.items]
-    })
+      }, ...this.state.items ]
+    });
   }
 
   uncheckItems = () => {
@@ -28,9 +28,9 @@ class App extends Component {
           id: id,
           name: name,
           checked: false
-        }
+        };
       })
-    })
+    });
   }
   
   checkAllItems = () => {
@@ -41,22 +41,22 @@ class App extends Component {
           id: id,
           name: name,
           checked: true
-        }
+        };
       })
-    })
+    });
   }
   
   deleteAllItems = () => {
     this.setState({
       items: []
-    })
+    });
   }
   
   removeItem = (id) => {
     const { items } = this.state;
     this.setState({
       items: items.filter((item) => item.id !== id)
-    })
+    });
   }
   
   toggleItem = (id) => {
@@ -68,55 +68,55 @@ class App extends Component {
             id: item.id,
             name: item.name,
             checked: !item.checked
-          }
+          };
         }
         return item;
       })
-    })
+    });
   }
 
   render () {
     const { items } = this.state;
-    const checked = items.filter(item => item.checked);
-    const unchecked = items.filter(item => !item.checked);
+    const checked = items.filter((item) => item.checked);
+    const unchecked = items.filter((item) => !item.checked);
     return (
       <div className="container">
         <div className="App">
           <h1>Checklist App</h1>
-          </div>
+        </div>
         <AddItem 
           handleNewItem={ this.addItem }
-          />
+        />
         { items.length >= 1 ?
-        <div>
-          <ListCard 
-            items={ unchecked }
-            title="Unchecked"
-            header="The following items still need to be checked..."
-            handleRemoveItem={ this.removeItem }
-            handleToggleItem={ this.toggleItem }
+          <div>
+            <ListCard 
+              items={ unchecked }
+              title="Unchecked"
+              header="The following items still need to be checked..."
+              handleRemoveItem={ this.removeItem }
+              handleToggleItem={ this.toggleItem }
             />
-          <ListCard 
-            items={ checked }
-            title="Checked"
-            header="The following items have been checked..."
-            handleRemoveItem={ this.removeItem }
-            handleToggleItem={ this.toggleItem }
+            <ListCard 
+              items={ checked }
+              title="Checked"
+              header="The following items have been checked..."
+              handleRemoveItem={ this.removeItem }
+              handleToggleItem={ this.toggleItem }
             />
-          <div className="buttons justify-content-between align-items-center App">
-            <CheckAll 
-              handleCheckAll={ this.checkAllItems }
+            <div className="buttons justify-content-between align-items-center App">
+              <CheckAll 
+                handleCheckAll={ this.checkAllItems }
               />
-            <UncheckItems 
-              handleUncheckItems={ this.uncheckItems }
+              <UncheckItems 
+                handleUncheckItems={ this.uncheckItems }
               />
-            <DeleteAll 
-              handleDeleteAll={ this.deleteAllItems }
+              <DeleteAll 
+                handleDeleteAll={ this.deleteAllItems }
               />
-          </div>
-        </div> : '' }
+            </div>
+          </div> : '' }
         <div className="App">
-        <Footer />
+          <Footer />
         </div>
       </div>
     );

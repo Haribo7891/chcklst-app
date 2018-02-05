@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 class ListItem extends Component {
 
   handleRemoveClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { handleRemoveItem, item: { id } } = this.props;
-    handleRemoveItem(id)
+    handleRemoveItem(id);
   }
   
   handleToggleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { handleToggleItem, item: { id } } = this.props;
-    handleToggleItem(id)
+    handleToggleItem(id);
   }
 
   render () {

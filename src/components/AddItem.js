@@ -10,7 +10,7 @@ class AddItem extends Component {
     event.preventDefault();
     this.setState({
       inputValue: event.target.value
-    })
+    });
   }
 
   handleSubmitNewItem = (event) => {
@@ -22,7 +22,7 @@ class AddItem extends Component {
       this.setState({
         inputValue: ''
       });
-      this.refs.addNewItem.value = ''
+      this.refs.addNewItem.value = '';
     }
   }
 
@@ -30,18 +30,18 @@ class AddItem extends Component {
     return (
       <div className="form-group">
         <label className="col-form-label col-form-label-lg" htmlFor="inputLarge">Add an item to your checklist:</label>
-          <form className="form-inline my-2 my-lg-0">
-            <input 
-              className="form-control mr-sm-2" 
-              type="text" 
-              placeholder="Add item..." 
-              ref="addNewItem" 
-              onChange={ this.handleInputChange }></input>
-            <button 
-              className="btn btn-primary my-2 my-sm-0" 
-              type="submit" 
-              onClick={ this.handleSubmitNewItem }>Add</button>
-          </form>
+        <form className="form-inline my-2 my-lg-0">
+          <input 
+            className="form-control mr-sm-2" 
+            type="text" 
+            placeholder="Add item..." 
+            ref="addNewItem" 
+            onChange={ this.handleInputChange }></input>
+          <button 
+            className="btn btn-primary my-2 my-sm-0" 
+            type="submit" 
+            onClick={ this.handleSubmitNewItem }>Add</button>
+        </form>
       </div>
     );
   }
